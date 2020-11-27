@@ -17,6 +17,45 @@ def menu():
 -------------------------------------------------------\n''')
     while True:
         try:
+            """
+            O input do usuário nesse programa seria a área em m2
+            
+            area = float(input('Digite a área em m2: )'
+            
+            Com base nesse input o usuário iria escolher qual opção ele deseja:
+            
+            1) Comprar somente latas
+            2) Comprar somente galões
+            3) Misturar as latas e galões para obter o mínimo de desperdício possível
+            
+            Um modo de fazer a opção 1:
+            quantidade_tinta_necessaria = area / 6
+            quantidade_latas_necessaria = math.ceil(quantidade_tinta_necessaria / 18)
+            
+            Repare que eu utilizei uma função que está em um módulo externo, portanto
+            é necessário importá-lo:
+            
+            import math
+            
+            Lembrando que segundo a PEP-8 os imports devem ficar logo abaixo dos comentários
+            do módulo (se houver) e antes das funções, classes, etc.
+            
+            A opção 2) é similar a opção 1) só será necessário modificar o valor pelo qual
+            a quantidade de tinta necessária é dividida: 16 -> 3.6
+            
+            Já a opção 3) é um pouco mais complicada:
+            quantidade_tinta_necessaria = (area / 6) * 1.1 
+            quantidade_latas_necessaria, resto_tinta = divmod(quantidade_tinta_necessaria, 18)
+            quantidade_galoes_necessario = math.ceil(quantidade_tinta_necessaria / 3.6)
+            
+            Repare que eu utilizei a função built-in divmod. Essa função retorna uma tupla
+            com o resultado e o resto da divisão inteira entre o primeiro argumento e o 
+            segundo argumento.
+            
+            Ou seja:
+            divmod(10, 2) -> (5, 0)
+            divmod(11, 2) -> (5, 1) 
+            """
             escolha = int(input('Escolha Uma Das Opções Acima: '))
             if escolha == 1:
                 totalLatas = int(input('Informe a Quantidade de Latas: '))
@@ -52,6 +91,11 @@ while True:
 
 
 def preco():
+    """
+    Um maneira bem útil:
+
+    tinta_necessaria = (area / 6) * 1.1
+    """
     folga = area / 6 * 10/100
     tinta = area / 6 + folga
     print(f'Quantidade de Tinta necessario é {round(tinta)} Litros')
