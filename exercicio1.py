@@ -37,13 +37,33 @@ def descontos():
     INSS = salarioBruto * (8/100)
     IR = salarioBruto * (11/100)
     sindicato = salarioBruto * (5/100)
-    salarioLiquido = salarioBruto - INSS - IR - sindicato
+    salarioLiquido = salarioBruto - INSS - IR - sindicato    
+    
+    """
+    Se você printar dessa forma a identação é respeitada.
+    
+    print(f'Seu Salario Bruto é de R$ {round(salarioBruto)}\n'
+          f'Desconto do INSS de R$ {round(INSS)}\n'
+          f'Desconto do Imposto de Renda de R$ {round(IR)}\n'
+          f'Desconto do Sindicato de R$ {round(sindicato)}\n'
+          f'Seu Salario Liquido é de R$ {round(salarioLiquido)}')
+    """
+    
     print(f'''Seu Salario Bruto é de R$ {round(salarioBruto)}
 Desconto do INSS de R$ {round(INSS)} 
 Desconto do Imposto de Renda de R$ {round(IR)} 
 Desconto do Sindicato de R$ {round(sindicato)} 
 Seu Salario Liquido é de R$ {round(salarioLiquido)}''')
 
+"""
+É bacana criar um bloco:
 
+if __name__ == '__main__':
+    trabalho()
+    descontos()
+    
+Aqui tem a explicação do porquê usar isso:
+https://www.youtube.com/watch?v=F2BC9fwm3tI&t=339s 
+"""
 trabalho()
 descontos()
