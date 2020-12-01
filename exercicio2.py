@@ -1,106 +1,42 @@
-# Faça um Programa para uma loja de tintas. O programa deverá pedir o tamanho em metros quadrados da área a ser pintada.
-# Considere que a cobertura da tinta é de 1 litro para cada 6 metros quadrados e que a tinta é vendida em latas de 18
-# litros,
-# que custam R$ 80,00 ou em galões de 3,6 litros, que custam R$ 25,00.
+import math
 
-#     Informe ao usuário as quantidades de tinta a serem compradas e os respectivos preços em 3 situações:
-#     comprar apenas latas de 18 litros;
-#     comprar apenas galões de 3,6 litros;
-#     misturar latas e galões, de forma que o desperdício de tinta seja menor.
-#     Acrescente 10% de folga e sempre arredonde os valores para cima, isto é, considere latas cheias.
 
 def menu():
     print('''-------------------------------------------------------\n\n\n
-1) Deseja Comprar Apenas Latas de 18 Litros
-2) Deseja Comprar Apenas Galões de 3,6 Litros
+1) Comprar apenas latas\n
+2) Comprar apenas galões\n
 3) Deseja Misturar as Latas e Galões\n\n\n
 -------------------------------------------------------\n''')
-    while True:
-        try:
-            """
-            O input do usuário nesse programa seria a área em m2
-            
-            area = float(input('Digite a área em m2: )'
-            
-            Com base nesse input o usuário iria escolher qual opção ele deseja:
-            
-            1) Comprar somente latas
-            2) Comprar somente galões
-            3) Misturar as latas e galões para obter o mínimo de desperdício possível
-            
-            Um modo de fazer a opção 1:
-            quantidade_tinta_necessaria = area / 6
-            quantidade_latas_necessaria = math.ceil(quantidade_tinta_necessaria / 18)
-            
-            Repare que eu utilizei uma função que está em um módulo externo, portanto
-            é necessário importá-lo:
-            
-            import math
-            
-            Lembrando que segundo a PEP-8 os imports devem ficar logo abaixo dos comentários
-            do módulo (se houver) e antes das funções, classes, etc.
-            
-            A opção 2) é similar a opção 1) só será necessário modificar o valor pelo qual
-            a quantidade de tinta necessária é dividida: 16 -> 3.6
-            
-            Já a opção 3) é um pouco mais complicada:
-            quantidade_tinta_necessaria = (area / 6) * 1.1 
-            quantidade_latas_necessaria, resto_tinta = divmod(quantidade_tinta_necessaria, 18)
-            quantidade_galoes_necessario = math.ceil(quantidade_tinta_necessaria / 3.6)
-            
-            Repare que eu utilizei a função built-in divmod. Essa função retorna uma tupla
-            com o resultado e o resto da divisão inteira entre o primeiro argumento e o 
-            segundo argumento.
-            
-            Ou seja:
-            divmod(10, 2) -> (5, 0)
-            divmod(11, 2) -> (5, 1) 
-            """
-            escolha = int(input('Escolha Uma Das Opções Acima: '))
-            if escolha == 1:
-                totalLatas = int(input('Informe a Quantidade de Latas: '))
-                totalpreco = totalLatas * 80
-                print(f'O Total Da Compra Será R$ {totalpreco}.')
-                break
-            elif escolha == 2:
-                totalGaloes = int(input('Informe a Quantidade de Galões: '))
-                totalpreco = totalGaloes * 25
-                print(f'O Total da Compra Será R$ {totalpreco}.')
-                break
-            elif escolha == 3:
-                totalLatas = int(input('Informe a Quantidade de Latas: '))
-                totalGaloes = int(input('Informe a Quantidade de Galões: '))
-                totalprecoL = totalLatas * 80
-                totalprecoG = totalGaloes * 25
-                total = totalprecoL + totalprecoG
-                print(f'O Total da Compra Será R$ {total}.')
-                break
-            elif escolha >= 4 or escolha <=0:
-                print('Opção Invalida!')
-        except:
-            print('Opção Invalida!')
+
 
 while True:
     try:
-        area = float(input('Informe o tamanho da area a ser pintado: '))
-    except:
-        print('Valor Invalido!', '\n', 'Digite um Valor Valido')
+        area = float(input('Digite a área em m2: '))
+        menu()
+        escolha = int(input('Escolha Uma Das Opções Acima: '))
 
-    else:
-        break
-
-
-def preco():
-    """
-    Um maneira bem útil:
-
-    tinta_necessaria = (area / 6) * 1.1
-    """
-    folga = area / 6 * 10/100
-    tinta = area / 6 + folga
-    print(f'Quantidade de Tinta necessario é {round(tinta)} Litros')
-    menu()
-
-
-preco()
-
+        if escolha == 1:
+            quantidade_tinta = area / 6
+            quantidade_latas = math.ceil(quantidade_tinta / 18)
+            preco = quantidade_latas * 80
+            print(f'O Total da compra será R$ {preco}.')
+            break
+        elif escolha == 2:
+            quantidade_tinta = area / 6
+            quantidade_galoes = math.ceil(quantidade_tinta / 3.6)
+            preco = quantidade_galoes * 25
+            print(f'O Total da compra será R$ {preco}.')
+            break
+        elif escolha == 3:
+            quantidade_tinta = (area/6) * 1.1
+            quantidade_latas, resto_tinta = divmod(quantidade_tinta, 18)
+            quantidade_galoes = math.ceil(quantidade_tinta / 3.6)
+            preco_lata = quantidade_latas * 80
+            preco_galao = quantidade_galoes * 25
+            preco_total = preco_lata + preco_galao
+            print(f'O Total da compra será R$ {preco_total}.')
+            break
+        elif escolha >= 4 or escolha <= 0:
+            print('Opção Invalida!\nDigite Uma Opção Valida!')
+    except ValueError:
+        print('Valor Invalido!\nDigite Um Valor Válido!')
