@@ -1,0 +1,96 @@
+.topo-total p {
+    color: white;
+}
+.topo-total a {
+    color: white;
+}
+
+.topo img {
+        width: 100%;
+        height: 100%;
+        margin: 100px;
+}
+
+.topo a {
+    font-weight: bold;
+}
+
+.algo {
+    background-color: gray;
+    padding: 30px;
+}
+
+.algo p {
+    text-align: center;
+    font-size: 80px;
+    font-style: italic;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side {
+    flex: 30%;
+    padding: 20px;
+}
+
+.imag {
+    background-color: gray;
+    flex: 30%;
+    padding: 5px;   
+}
+.imag p {
+    text-align: right;
+    font-size: larger;
+    font-style: italic;
+}
+
+
+.innerbox {
+    box-sizing: border-box;
+    border: 2px solid black;
+    margin: 0px;
+    width: 250px;
+    text-align: center;
+    color: white;
+}
+
+.box-top {
+    width: 100%;
+    background-color: #003366; 
+}
+
+.innerbox2 {
+    box-sizing: border-box;
+    border: 2px solid black;
+    margin: 0;
+   width: 250px;
+    text-align: center;
+    color: white;
+}
+
+.innerbox3 {
+    box-sizing: border-box;
+    border: 2px solid black;
+    margin: 0;
+    width: 250px;
+    text-align: center;
+    color: white;
+}
+
+.contatos {
+    text-align: center;
+}
+
+.mensagens {
+    display: flex;
+    justify-content: center;
+    margin-left: 550px;
+    margin-top: -75px;
+}
+
+.fot {
+    background-color: #003366;
+}
